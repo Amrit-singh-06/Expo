@@ -170,6 +170,28 @@
         width: 120px;
       }
     }
+
+    /* Go to Top Button */
+    #goToTopBtn {
+      display: none; /* Hidden by default */
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 99;
+      border: none;
+      outline: none;
+      background-color: #2c3e50;
+      color: white;
+      cursor: pointer;
+      padding: 15px;
+      border-radius: 50%;
+      font-size: 18px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    #goToTopBtn:hover {
+      background-color: #34495e;
+    }
   </style>
 </head>
 <body>
@@ -229,11 +251,12 @@
     <div id="features" class="section">
       <h2>Key Features</h2>
       <ul>
-        <li><strong>Intuitive Interface:</strong> Easy-to-use interface for querying and visualizing data.</li>
-        <li><strong>Multi-Database Support:</strong> Works with various databases like MySQL, PostgreSQL, MongoDB, and more.</li>
-        <li><strong>Interactive Dashboards:</strong> Create and share interactive dashboards with your team.</li>
-        <li><strong>Automated Reports:</strong> Schedule and send automated reports via email.</li>
-        <li><strong>Open Source:</strong> Free to use and customizable to meet your needs.</li>
+        <li><strong>Easy to use:</strong>offers simple and intuitive interface that helps users to explore data and visualize it in few clicks. Users can ask question in plain English and get answers in the form of graphs and charts or tables</li>
+        <li><strong>Open Source:</strong> It is free open source platform, making ot cost effective. Its source code is available on GitHub, allowing organizations to customize and extend its functionality.</li>
+        <li><strong>Data Visualization:</strong> Metabase supports a wide range of visualizations, including bar charts, line charts, pie charts, maps, and more.</li>
+        <li><strong>SQL Support:</strong> for advanced users metabase provides sql editor to write custom queries and perform complex data analysis. </li>
+        <li><strong>Multi-Data Source Support:</strong> Metabase connects to a variety of data sources, including PostgreSQL, MySQL, SQL Server, BigQuery, MongoDB, and more</li>
+        <li><strong>Security and permissions:</strong> Metabase provides role-based access control (RBAC) to ensure that users only have access to the data they are authorized to view.</li>
       </ul>
     </div>
 
@@ -241,6 +264,7 @@
     <div id="code-examples" class="section">
       <h2>Code Examples</h2>
       <p>Here’s an example of how to query a database using Metabase's native query editor:</p>
+
       <div class="code-snippet">
         <pre><code>SELECT 
   DATE(created_at) AS signup_date,
@@ -256,10 +280,14 @@ ORDER BY signup_date;</code></pre>
     <div id="screenshots" class="section">
       <h2>Screenshots</h2>
       <p>Below are some screenshots of Metabase in action:</p>
-      <img src="screenshot1.png" alt="Metabase Dashboard">
-      <p><em>Figure 1: Example of a Metabase dashboard showing key metrics.</em></p>
-      <img src="screenshot2.png" alt="Metabase Query Interface">
-      <p><em>Figure 2: Metabase's native query editor for writing custom SQL queries.</em></p>
+      <img src="dashboard.png" alt="Metabase Dashboard">
+      <p><em>Figure 1:Screenshot of the Metabse's dashboard containing graphs and examples of charts.</em></p><br>
+      <img src="Charts.png" alt="Metabase Query Interface">
+      <p><em>Figure 2: Various charts and graphs available in Metabse for visualization.</em></p><br>
+      <img src="Filtering.png" alt="Metabase Dashboard">
+      <p><em>Figure 3: Metabase feature of filtering, sorting or grouping data using few selctions or clicks.</em></p><br>
+      <img src="Query.png" alt="Metabase Query Interface">
+      <p><em>Figure 4: Metabase's native query editor for writing custom SQL queries.</em></p><br>
     </div>
 
     <!-- Use Cases Section -->
@@ -267,17 +295,17 @@ ORDER BY signup_date;</code></pre>
       <h2>Use Cases</h2>
       <p>Metabase can be used in various scenarios, including:</p>
       <ul>
-        <li><strong>Business Analytics:</strong> Track sales, revenue, and customer behavior.</li>
-        <li><strong>Operational Monitoring:</strong> Monitor server performance, application logs, and system health.</li>
-        <li><strong>Marketing Insights:</strong> Analyze campaign performance and customer engagement.</li>
-        <li><strong>Financial Reporting:</strong> Generate financial reports and visualize trends.</li>
+        <li><h3>Business Analytics:</h3> Track sales performance, revenue growth, and customer behavior to optimize decision-making. Analyze purchasing patterns, segment customers, and forecast future trends using predictive analytics.</li>
+        <li><h3>Operational Monitoring:</h3> Monitor server performance, application logs, and system health to ensure smooth operations. Set up real-time alerts for system failures and track resource utilization.</li>
+        <li><h3>Marketing Insights:</h3> Analyze campaign performance, customer engagement, and conversion rates to improve marketing strategies. Monitor website traffic, social media impact, and audience sentiment.</li>
+        <li><h3>Financial Reporting:</h3> Generate financial reports, track revenue and expenses, and visualize financial trends. Analyze profitability, cash flow, and budget performance for better financial planning.</li>
       </ul>
     </div>
 
     <!-- Conclusion Section -->
     <div id="conclusion" class="section">
       <h2>Conclusion</h2>
-      <p>Metabase is a powerful yet simple tool for data exploration and visualization. Its open-source nature, combined with its user-friendly interface, makes it an excellent choice for teams looking to democratize data access and insights. Whether you're a data analyst or a business user, Metabase empowers you to make data-driven decisions with ease.</p>
+      <p>Metabase represents a powerfully strong, open-source business intelligence program making diving into data exploration simple and really easy to access: it has quite an intuitive interface enabling teams to build dashboards, visualize data, and create insights without requiring deep technical skills. Some of its strengths are really simple setup, intuitive query builder, and seamless integration with numerous databases. This means that it is good for startups, businesses, and analysts who would like a cost-effective option toward data-driven decisions. Metabase can basically empower users to spend little effort unlocking their power within data.</p>
     </div>
 
     <!-- References & Further Reading Section -->
@@ -295,6 +323,9 @@ ORDER BY signup_date;</code></pre>
   <footer>
     <p>Created by Akhil Soni (24110022), Aryan Lohiya (24110057), Singh Amritkumar (24110341)</p>
   </footer>
+
+  <!-- Go to Top Button -->
+  <button id="goToTopBtn" title="Go to top">↑</button>
 
   <!-- JavaScript for Navigation and Hamburger Menu -->
   <script>
@@ -318,6 +349,24 @@ ORDER BY signup_date;</code></pre>
           navBar.classList.remove('active');
         }
       });
+    });
+
+    // Go to Top Button
+    const goToTopBtn = document.getElementById('goToTopBtn');
+
+    // Show the button when the user scrolls down 20px from the top
+    window.onscroll = function() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        goToTopBtn.style.display = 'block';
+      } else {
+        goToTopBtn.style.display = 'none';
+      }
+    };
+
+    // Scroll to the top of the document when the button is clicked
+    goToTopBtn.addEventListener('click', () => {
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE, and Opera
     });
   </script>
 </body>
